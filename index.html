@@ -1122,21 +1122,18 @@
               <label class="form-label">选择参与活动 *</label>
             </div>
             <div class="activity-select-group">
-              <label class="activity-option" onclick="toggleOption(this)">
-                <input type="checkbox" name="activity" value="1">
+              <div class="activity-option" data-val="1" onclick="toggleOption(this)">
                 <div class="ao-title">活动一 · 新品赏味</div>
                 <div class="ao-sub">新品专区 6.6/8.8元尝鲜</div>
-              </label>
-              <label class="activity-option" onclick="toggleOption(this)">
-                <input type="checkbox" name="activity" value="2">
+              </div>
+              <div class="activity-option" data-val="2" onclick="toggleOption(this)">
                 <div class="ao-title">活动二 · 春日储値卡</div>
                 <div class="ao-sub">38元5杯饮品卡</div>
-              </label>
-              <label class="activity-option opt-none" onclick="toggleOption(this)">
-                <input type="checkbox" name="activity" value="0">
+              </div>
+              <div class="activity-option opt-none" data-val="0" onclick="toggleOption(this)">
                 <div class="ao-title">本期暂不参加</div>
                 <div class="ao-sub">不参与任何活动</div>
-              </label>
+              </div>
             </div>
 
             <div class="conditional-fields">
@@ -1243,21 +1240,18 @@
               <label class="form-label">选择参与活动 *</label>
             </div>
             <div class="activity-select-group">
-              <label class="activity-option" onclick="toggleOption(this)">
-                <input type="checkbox" name="activity" value="1">
+              <div class="activity-option" data-val="1" onclick="toggleOption(this)">
                 <div class="ao-title">活动一 · 新品赏味</div>
                 <div class="ao-sub">新品专区 6.6/8.8元尝鲜</div>
-              </label>
-              <label class="activity-option" onclick="toggleOption(this)">
-                <input type="checkbox" name="activity" value="2">
+              </div>
+              <div class="activity-option" data-val="2" onclick="toggleOption(this)">
                 <div class="ao-title">活动二 · 春日储値卡</div>
                 <div class="ao-sub">38元5杯饮品卡</div>
-              </label>
-              <label class="activity-option opt-none" onclick="toggleOption(this)">
-                <input type="checkbox" name="activity" value="0">
+              </div>
+              <div class="activity-option opt-none" data-val="0" onclick="toggleOption(this)">
                 <div class="ao-title">本期暂不参加</div>
                 <div class="ao-sub">不参与任何活动</div>
-              </label>
+              </div>
             </div>
 
             <div class="conditional-fields">
@@ -1364,21 +1358,18 @@
               <label class="form-label">选择参与活动 *</label>
             </div>
             <div class="activity-select-group">
-              <label class="activity-option" onclick="toggleOption(this)">
-                <input type="checkbox" name="activity" value="1">
+              <div class="activity-option" data-val="1" onclick="toggleOption(this)">
                 <div class="ao-title">活动一 · 新品赏味</div>
                 <div class="ao-sub">新品专区 6.6/8.8元尝鲜</div>
-              </label>
-              <label class="activity-option" onclick="toggleOption(this)">
-                <input type="checkbox" name="activity" value="2">
+              </div>
+              <div class="activity-option" data-val="2" onclick="toggleOption(this)">
                 <div class="ao-title">活动二 · 春日储値卡</div>
                 <div class="ao-sub">38元5杯饮品卡</div>
-              </label>
-              <label class="activity-option opt-none" onclick="toggleOption(this)">
-                <input type="checkbox" name="activity" value="0">
+              </div>
+              <div class="activity-option opt-none" data-val="0" onclick="toggleOption(this)">
                 <div class="ao-title">本期暂不参加</div>
                 <div class="ao-sub">不参与任何活动</div>
-              </label>
+              </div>
             </div>
 
             <div class="conditional-fields">
@@ -1478,8 +1469,6 @@
 <script>
 function toggleOption(el) {
   el.classList.toggle('selected');
-  const cb = el.querySelector('input[type="checkbox"]');
-  cb.checked = !cb.checked;
 }
 
 function submitForm(e, region) {
@@ -1489,8 +1478,8 @@ function submitForm(e, region) {
   const status = document.getElementById('status-' + region);
 
   // 检查是否至少选了一个活动
-  const options = form.querySelectorAll('.activity-option.selected');
-  if (options.length === 0) {
+  const selected = form.querySelectorAll('.activity-option.selected');
+  if (selected.length === 0) {
     alert('请选择参与活动方案（包括“本期暂不参加”）！');
     return;
   }
