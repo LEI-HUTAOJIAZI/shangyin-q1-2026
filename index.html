@@ -1135,9 +1135,10 @@
           <div class="rfc-status" id="status-north">待填写</div>
         </div>
         <div class="rfc-body">
-          <form id="form-north" action="https://formspree.io/f/leilei@smyze-ch.com" method="POST" onsubmit="submitForm(event,'north')">
-            <input type="hidden" name="_subject" value="【尚饮Q1活动】华北大区回执">
-            <input type="hidden" name="_replyto" value="leilei@smyze-ch.com">
+          <form id="form-north" onsubmit="submitForm(event,'north')">
+            <input type="hidden" name="access_key" value="ddec9c0a-2b9e-468c-b912-cf2a577ad2c2">
+            <input type="hidden" name="subject" value="【尚饮Q1活动】华北大区回执">
+            <input type="hidden" name="from_name" value="尚饮Q1活动官网">
             <input type="hidden" name="大区" value="华北大区">
             <div class="form-row">
               <div class="form-group">
@@ -1253,9 +1254,10 @@
           <div class="rfc-status" id="status-east">待填写</div>
         </div>
         <div class="rfc-body">
-          <form id="form-east" action="https://formspree.io/f/leilei@smyze-ch.com" method="POST" onsubmit="submitForm(event,'east')">
-            <input type="hidden" name="_subject" value="【尚饮Q1活动】华东大区回执">
-            <input type="hidden" name="_replyto" value="leilei@smyze-ch.com">
+          <form id="form-east" onsubmit="submitForm(event,'east')">
+            <input type="hidden" name="access_key" value="ddec9c0a-2b9e-468c-b912-cf2a577ad2c2">
+            <input type="hidden" name="subject" value="【尚饮Q1活动】华东大区回执">
+            <input type="hidden" name="from_name" value="尚饮Q1活动官网">
             <input type="hidden" name="大区" value="华东大区">
             <div class="form-row">
               <div class="form-group">
@@ -1371,9 +1373,10 @@
           <div class="rfc-status" id="status-south">待填写</div>
         </div>
         <div class="rfc-body">
-          <form id="form-south" action="https://formspree.io/f/leilei@smyze-ch.com" method="POST" onsubmit="submitForm(event,'south')">
-            <input type="hidden" name="_subject" value="【尚饮Q1活动】华南大区回执">
-            <input type="hidden" name="_replyto" value="leilei@smyze-ch.com">
+          <form id="form-south" onsubmit="submitForm(event,'south')">
+            <input type="hidden" name="access_key" value="ddec9c0a-2b9e-468c-b912-cf2a577ad2c2">
+            <input type="hidden" name="subject" value="【尚饮Q1活动】华南大区回执">
+            <input type="hidden" name="from_name" value="尚饮Q1活动官网">
             <input type="hidden" name="大区" value="华南大区">
             <div class="form-row">
               <div class="form-group">
@@ -1507,16 +1510,51 @@ function submitForm(e, region) {
   const status = document.getElementById('status-' + region);
 
   // 检查是否至少勾选了一个活动
-  const checked = form.querySelectorAll('input[name="activity"]:checked');
+  const checked = form.querySelectorAll('input[name="参与活动"]:checked');
   if (checked.length === 0) {
-    alert('请勾选参与活动方案（包括“本期暂不参加”）！');
+    alert('请勾选参与活动方案（包括"本期暂不参加"）！');
     return;
   }
 
-  form.style.display = 'none';
-  success.style.display = 'block';
-  status.textContent = '✓ 已提交';
-  status.style.background = 'rgba(255,255,255,0.35)';
+  // 显示提交中状态
+  const btn = form.querySelector('button[type="submit"]');
+  if (btn) { btn.disabled = true; btn.textContent = '提交中...'; }
+
+  // 收集表单数据
+  const formData = new FormData(form);
+  const object = {};
+  formData.forEach((value, key) => {
+    if (object[key]) {
+      if (!Array.isArray(object[key])) object[key] = [object[key]];
+      object[key].push(value);
+    } else {
+      object[key] = value;
+    }
+  });
+  const json = JSON.stringify(object);
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: json
+  })
+  .then(async (response) => {
+    const data = await response.json();
+    if (response.ok && data.success) {
+      form.style.display = 'none';
+      success.style.display = 'block';
+      status.textContent = '✓ 已提交';
+      status.style.background = 'rgba(255,255,255,0.35)';
+    } else {
+      if (btn) { btn.disabled = false; btn.textContent = '确认提交'; }
+      alert('提交失败：' + (data.message || '请稍后重试'));
+    }
+  })
+  .catch((error) => {
+    if (btn) { btn.disabled = false; btn.textContent = '确认提交'; }
+    alert('网络错误，请检查网络连接后重试。');
+    console.error(error);
+  });
 }
 </script>
 
