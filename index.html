@@ -647,10 +647,26 @@
   .form-textarea { resize: vertical; min-height: 80px; }
 
   .activity-select-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 20px;
+  }
+  .activity-select-group .activity-option {
+    flex: 1 1 calc(50% - 6px);
+    min-width: 180px;
+    box-sizing: border-box;
+  }
+  .activity-option.opt-none {
+    flex: 0 1 calc(50% - 6px);
+    background: #fafafa;
+  }
+  .activity-option.opt-none.selected {
+    background: #fff3f3;
+    border-color: #e74c3c;
+  }
+  .activity-option.opt-none.selected::after {
+    color: #e74c3c;
   }
 
   .activity-option {
@@ -1116,7 +1132,7 @@
                 <div class="ao-title">活动二 · 春日储値卡</div>
                 <div class="ao-sub">38元5杯饮品卡</div>
               </label>
-              <label class="activity-option" onclick="toggleOption(this)">
+              <label class="activity-option opt-none" onclick="toggleOption(this)">
                 <input type="checkbox" name="activity" value="0">
                 <div class="ao-title">本期暂不参加</div>
                 <div class="ao-sub">不参与任何活动</div>
@@ -1237,7 +1253,7 @@
                 <div class="ao-title">活动二 · 春日储値卡</div>
                 <div class="ao-sub">38元5杯饮品卡</div>
               </label>
-              <label class="activity-option" onclick="toggleOption(this)">
+              <label class="activity-option opt-none" onclick="toggleOption(this)">
                 <input type="checkbox" name="activity" value="0">
                 <div class="ao-title">本期暂不参加</div>
                 <div class="ao-sub">不参与任何活动</div>
@@ -1358,7 +1374,7 @@
                 <div class="ao-title">活动二 · 春日储値卡</div>
                 <div class="ao-sub">38元5杯饮品卡</div>
               </label>
-              <label class="activity-option" onclick="toggleOption(this)">
+              <label class="activity-option opt-none" onclick="toggleOption(this)">
                 <input type="checkbox" name="activity" value="0">
                 <div class="ao-title">本期暂不参加</div>
                 <div class="ao-sub">不参与任何活动</div>
