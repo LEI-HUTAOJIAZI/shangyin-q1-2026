@@ -1135,29 +1135,32 @@
           <div class="rfc-status" id="status-north">待填写</div>
         </div>
         <div class="rfc-body">
-          <form id="form-north" onsubmit="submitForm(event,'north')">
+          <form id="form-north" action="https://formspree.io/f/leilei@smyze-ch.com" method="POST" onsubmit="submitForm(event,'north')">
+            <input type="hidden" name="_subject" value="【尚饮Q1活动】华北大区回执">
+            <input type="hidden" name="_replyto" value="leilei@smyze-ch.com">
+            <input type="hidden" name="大区" value="华北大区">
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label">负责人姓名 *</label>
-                <input class="form-input" type="text" placeholder="请输入姓名" required>
+                <input class="form-input" type="text" name="负责人姓名" placeholder="请输入姓名" required>
               </div>
               <div class="form-group">
                 <label class="form-label">确认日期</label>
-                <input class="form-input" type="date" value="2026-03-03">
+                <input class="form-input" type="date" name="确认日期" value="2026-03-03">
               </div>
             </div>
 
             <div class="form-group" style="margin-bottom:20px;">
-              <label class="form-label" style="margin-bottom:10px;显示块">选择参与活动 *（可多选）</label>
+              <label class="form-label" style="margin-bottom:10px;display:block">选择参与活动 *（可多选）</label>
               <div class="checkbox-group">
                 <label class="cb-item">
-                  <input type="checkbox" name="activity" value="1"> 活动一 · 新品赏味专区（6.6/8.8元尝鲜）
+                  <input type="checkbox" name="参与活动" value="活动一·新品赏味专区"> 活动一 · 新品赏味专区（6.6/8.8元尝鲜）
                 </label>
                 <label class="cb-item">
-                  <input type="checkbox" name="activity" value="2"> 活动二 · 春日储値卡（38元5杯饮品卡）
+                  <input type="checkbox" name="参与活动" value="活动二·春日储値卡"> 活动二 · 春日储値卡（38元5杯饮品卡）
                 </label>
                 <label class="cb-item cb-none">
-                  <input type="checkbox" name="activity" value="0"> 本期暂不参加任何活动
+                  <input type="checkbox" name="参与活动" value="本期暂不参加"> 本期暂不参加任何活动
                 </label>
               </div>
             </div>
@@ -1167,7 +1170,7 @@
               <div class="form-row">
                 <div class="form-group">
                   <label class="form-label">新品定价（元/杯）</label>
-                  <select class="form-select">
+                  <select class="form-select" name="新品定价">
                     <option value="">请选择</option>
                     <option>6.6元</option>
                     <option>8.8元</option>
@@ -1176,7 +1179,7 @@
                 </div>
                 <div class="form-group">
                   <label class="form-label">参与产品范围</label>
-                  <select class="form-select">
+                  <select class="form-select" name="参与产品范围">
                     <option value="">请选择</option>
                     <option>树莓+青汁全系列</option>
                     <option>仅树莓系列</option>
@@ -1186,11 +1189,11 @@
                 </div>
                 <div class="form-group">
                   <label class="form-label">新品销售杯数目标</label>
-                  <input class="form-input" type="number" placeholder="例：500 杯">
+                  <input class="form-input" type="number" name="新品销售杯数目标" placeholder="例：500 杯">
                 </div>
                 <div class="form-group">
                   <label class="form-label">新品销售收入目标（元）</label>
-                  <input class="form-input" type="number" placeholder="例：3000 元">
+                  <input class="form-input" type="number" name="新品销售收入目标" placeholder="例：3000 元">
                 </div>
               </div>
             </div>
@@ -1200,7 +1203,7 @@
               <div class="form-row">
                 <div class="form-group">
                   <label class="form-label">饮品卡定价（元）</label>
-                  <select class="form-select">
+                  <select class="form-select" name="饮品卡定价">
                     <option value="">请选择</option>
                     <option>28元</option>
                     <option>38元（建议）</option>
@@ -1210,7 +1213,7 @@
                 </div>
                 <div class="form-group">
                   <label class="form-label">可用产品范围</label>
-                  <select class="form-select">
+                  <select class="form-select" name="可用产品范围">
                     <option value="">请选择</option>
                     <option>全场饮品通用</option>
                     <option>指定系列（请在备注说明）</option>
@@ -1219,18 +1222,18 @@
                 </div>
                 <div class="form-group">
                   <label class="form-label">饮品卡销售目标（张）</label>
-                  <input class="form-input" type="number" placeholder="例：100 张">
+                  <input class="form-input" type="number" name="饮品卡销售目标" placeholder="例：100 张">
                 </div>
                 <div class="form-group">
                   <label class="form-label">预计带动杯量（杯）</label>
-                  <input class="form-input" type="number" placeholder="例：500 杯">
+                  <input class="form-input" type="number" name="预计带动杯量" placeholder="例：500 杯">
                 </div>
               </div>
             </div>
 
             <div class="form-group" style="margin-bottom:20px;">
               <label class="form-label">备注说明（如有特殊情况请在此说明）</label>
-              <textarea class="form-textarea" placeholder="如：特殊门店情况、物料需求数量、其他调控说明等..."></textarea>
+              <textarea class="form-textarea" name="备注说明" placeholder="如：特殊门店情况、物料需求数量、其他调控说明等..."></textarea>
             </div>
 
             <button type="submit" class="submit-btn btn-north">✓ 提交华北大区确认回执</button>
@@ -1250,29 +1253,32 @@
           <div class="rfc-status" id="status-east">待填写</div>
         </div>
         <div class="rfc-body">
-          <form id="form-east" onsubmit="submitForm(event,'east')">
+          <form id="form-east" action="https://formspree.io/f/leilei@smyze-ch.com" method="POST" onsubmit="submitForm(event,'east')">
+            <input type="hidden" name="_subject" value="【尚饮Q1活动】华东大区回执">
+            <input type="hidden" name="_replyto" value="leilei@smyze-ch.com">
+            <input type="hidden" name="大区" value="华东大区">
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label">负责人姓名 *</label>
-                <input class="form-input" type="text" placeholder="请输入姓名" required>
+                <input class="form-input" type="text" name="负责人姓名" placeholder="请输入姓名" required>
               </div>
               <div class="form-group">
                 <label class="form-label">确认日期</label>
-                <input class="form-input" type="date" value="2026-03-03">
+                <input class="form-input" type="date" name="确认日期" value="2026-03-03">
               </div>
             </div>
 
             <div class="form-group" style="margin-bottom:20px;">
-              <label class="form-label" style="margin-bottom:10px;显示块">选择参与活动 *（可多选）</label>
+              <label class="form-label" style="margin-bottom:10px;display:block">选择参与活动 *（可多选）</label>
               <div class="checkbox-group">
                 <label class="cb-item">
-                  <input type="checkbox" name="activity" value="1"> 活动一 · 新品赏味专区（6.6/8.8元尝鲜）
+                  <input type="checkbox" name="参与活动" value="活动一·新品赏味专区"> 活动一 · 新品赏味专区（6.6/8.8元尝鲜）
                 </label>
                 <label class="cb-item">
-                  <input type="checkbox" name="activity" value="2"> 活动二 · 春日储値卡（38元5杯饮品卡）
+                  <input type="checkbox" name="参与活动" value="活动二·春日储値卡"> 活动二 · 春日储値卡（38元5杯饮品卡）
                 </label>
                 <label class="cb-item cb-none">
-                  <input type="checkbox" name="activity" value="0"> 本期暂不参加任何活动
+                  <input type="checkbox" name="参与活动" value="本期暂不参加"> 本期暂不参加任何活动
                 </label>
               </div>
             </div>
@@ -1282,7 +1288,7 @@
               <div class="form-row">
                 <div class="form-group">
                   <label class="form-label">新品定价（元/杯）</label>
-                  <select class="form-select">
+                  <select class="form-select" name="新品定价">
                     <option value="">请选择</option>
                     <option>6.6元</option>
                     <option>8.8元</option>
@@ -1291,7 +1297,7 @@
                 </div>
                 <div class="form-group">
                   <label class="form-label">参与产品范围</label>
-                  <select class="form-select">
+                  <select class="form-select" name="参与产品范围">
                     <option value="">请选择</option>
                     <option>树莓+青汁全系列</option>
                     <option>仅树莓系列</option>
@@ -1301,11 +1307,11 @@
                 </div>
                 <div class="form-group">
                   <label class="form-label">新品销售杯数目标</label>
-                  <input class="form-input" type="number" placeholder="例：500 杯">
+                  <input class="form-input" type="number" name="新品销售杯数目标" placeholder="例：500 杯">
                 </div>
                 <div class="form-group">
                   <label class="form-label">新品销售收入目标（元）</label>
-                  <input class="form-input" type="number" placeholder="例：3000 元">
+                  <input class="form-input" type="number" name="新品销售收入目标" placeholder="例：3000 元">
                 </div>
               </div>
             </div>
@@ -1315,7 +1321,7 @@
               <div class="form-row">
                 <div class="form-group">
                   <label class="form-label">饮品卡定价（元）</label>
-                  <select class="form-select">
+                  <select class="form-select" name="饮品卡定价">
                     <option value="">请选择</option>
                     <option>28元</option>
                     <option>38元（建议）</option>
@@ -1325,7 +1331,7 @@
                 </div>
                 <div class="form-group">
                   <label class="form-label">可用产品范围</label>
-                  <select class="form-select">
+                  <select class="form-select" name="可用产品范围">
                     <option value="">请选择</option>
                     <option>全场饮品通用</option>
                     <option>指定系列（请在备注说明）</option>
@@ -1334,18 +1340,18 @@
                 </div>
                 <div class="form-group">
                   <label class="form-label">饮品卡销售目标（张）</label>
-                  <input class="form-input" type="number" placeholder="例：100 张">
+                  <input class="form-input" type="number" name="饮品卡销售目标" placeholder="例：100 张">
                 </div>
                 <div class="form-group">
                   <label class="form-label">预计带动杯量（杯）</label>
-                  <input class="form-input" type="number" placeholder="例：500 杯">
+                  <input class="form-input" type="number" name="预计带动杯量" placeholder="例：500 杯">
                 </div>
               </div>
             </div>
 
             <div class="form-group" style="margin-bottom:20px;">
               <label class="form-label">备注说明（如有特殊情况请在此说明）</label>
-              <textarea class="form-textarea" placeholder="如：特殊门店情况、物料需求数量、其他调控说明等..."></textarea>
+              <textarea class="form-textarea" name="备注说明" placeholder="如：特殊门店情况、物料需求数量、其他调控说明等..."></textarea>
             </div>
 
             <button type="submit" class="submit-btn btn-east">✓ 提交华东大区确认回执</button>
@@ -1365,29 +1371,32 @@
           <div class="rfc-status" id="status-south">待填写</div>
         </div>
         <div class="rfc-body">
-          <form id="form-south" onsubmit="submitForm(event,'south')">
+          <form id="form-south" action="https://formspree.io/f/leilei@smyze-ch.com" method="POST" onsubmit="submitForm(event,'south')">
+            <input type="hidden" name="_subject" value="【尚饮Q1活动】华南大区回执">
+            <input type="hidden" name="_replyto" value="leilei@smyze-ch.com">
+            <input type="hidden" name="大区" value="华南大区">
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label">负责人姓名 *</label>
-                <input class="form-input" type="text" placeholder="请输入姓名" required>
+                <input class="form-input" type="text" name="负责人姓名" placeholder="请输入姓名" required>
               </div>
               <div class="form-group">
                 <label class="form-label">确认日期</label>
-                <input class="form-input" type="date" value="2026-03-03">
+                <input class="form-input" type="date" name="确认日期" value="2026-03-03">
               </div>
             </div>
 
             <div class="form-group" style="margin-bottom:20px;">
-              <label class="form-label" style="margin-bottom:10px;显示块">选择参与活动 *（可多选）</label>
+              <label class="form-label" style="margin-bottom:10px;display:block">选择参与活动 *（可多选）</label>
               <div class="checkbox-group">
                 <label class="cb-item">
-                  <input type="checkbox" name="activity" value="1"> 活动一 · 新品赏味专区（6.6/8.8元尝鲜）
+                  <input type="checkbox" name="参与活动" value="活动一·新品赏味专区"> 活动一 · 新品赏味专区（6.6/8.8元尝鲜）
                 </label>
                 <label class="cb-item">
-                  <input type="checkbox" name="activity" value="2"> 活动二 · 春日储値卡（38元5杯饮品卡）
+                  <input type="checkbox" name="参与活动" value="活动二·春日储値卡"> 活动二 · 春日储値卡（38元5杯饮品卡）
                 </label>
                 <label class="cb-item cb-none">
-                  <input type="checkbox" name="activity" value="0"> 本期暂不参加任何活动
+                  <input type="checkbox" name="参与活动" value="本期暂不参加"> 本期暂不参加任何活动
                 </label>
               </div>
             </div>
@@ -1397,7 +1406,7 @@
               <div class="form-row">
                 <div class="form-group">
                   <label class="form-label">新品定价（元/杯）</label>
-                  <select class="form-select">
+                  <select class="form-select" name="新品定价">
                     <option value="">请选择</option>
                     <option>6.6元</option>
                     <option>8.8元</option>
@@ -1406,7 +1415,7 @@
                 </div>
                 <div class="form-group">
                   <label class="form-label">参与产品范围</label>
-                  <select class="form-select">
+                  <select class="form-select" name="参与产品范围">
                     <option value="">请选择</option>
                     <option>树莓+青汁全系列</option>
                     <option>仅树莓系列</option>
@@ -1416,11 +1425,11 @@
                 </div>
                 <div class="form-group">
                   <label class="form-label">新品销售杯数目标</label>
-                  <input class="form-input" type="number" placeholder="例：500 杯">
+                  <input class="form-input" type="number" name="新品销售杯数目标" placeholder="例：500 杯">
                 </div>
                 <div class="form-group">
                   <label class="form-label">新品销售收入目标（元）</label>
-                  <input class="form-input" type="number" placeholder="例：3000 元">
+                  <input class="form-input" type="number" name="新品销售收入目标" placeholder="例：3000 元">
                 </div>
               </div>
             </div>
@@ -1430,7 +1439,7 @@
               <div class="form-row">
                 <div class="form-group">
                   <label class="form-label">饮品卡定价（元）</label>
-                  <select class="form-select">
+                  <select class="form-select" name="饮品卡定价">
                     <option value="">请选择</option>
                     <option>28元</option>
                     <option>38元（建议）</option>
@@ -1440,7 +1449,7 @@
                 </div>
                 <div class="form-group">
                   <label class="form-label">可用产品范围</label>
-                  <select class="form-select">
+                  <select class="form-select" name="可用产品范围">
                     <option value="">请选择</option>
                     <option>全场饮品通用</option>
                     <option>指定系列（请在备注说明）</option>
@@ -1449,18 +1458,18 @@
                 </div>
                 <div class="form-group">
                   <label class="form-label">饮品卡销售目标（张）</label>
-                  <input class="form-input" type="number" placeholder="例：100 张">
+                  <input class="form-input" type="number" name="饮品卡销售目标" placeholder="例：100 张">
                 </div>
                 <div class="form-group">
                   <label class="form-label">预计带动杯量（杯）</label>
-                  <input class="form-input" type="number" placeholder="例：500 杯">
+                  <input class="form-input" type="number" name="预计带动杯量" placeholder="例：500 杯">
                 </div>
               </div>
             </div>
 
             <div class="form-group" style="margin-bottom:20px;">
               <label class="form-label">备注说明（如有特殊情况请在此说明）</label>
-              <textarea class="form-textarea" placeholder="如：特殊门店情况、物料需求数量、其他调控说明等..."></textarea>
+              <textarea class="form-textarea" name="备注说明" placeholder="如：特殊门店情况、物料需求数量、其他调控说明等..."></textarea>
             </div>
 
             <button type="submit" class="submit-btn btn-south">✓ 提交华南大区确认回执</button>
